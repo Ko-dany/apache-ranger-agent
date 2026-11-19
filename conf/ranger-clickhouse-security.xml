@@ -31,4 +31,12 @@
     <name>ranger.plugin.clickhouse.policy.rest.client.read.timeoutMs</name>
     <value>30000</value>
   </property>
+  <property>
+    <name>ranger.plugin.clickhouse.disable.tag.retriever</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>ranger.plugin.clickhouse.disable.tag.policy.evaluation</name>
+    <value>true</value>
+  </property>
 </configuration>
