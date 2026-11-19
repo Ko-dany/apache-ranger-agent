@@ -16,7 +16,7 @@ import org.apache.ranger.plugin.service.RangerBasePlugin;
  * Same pattern as Kudu's RangerKuduAuthorizer. Only stable public Ranger APIs are used,
  * so the same code can be built against Ranger 2.5.0 and 2.9.0 (change ranger.version).
  */
-public class ClickHouseAuthorizer {
+public class ClickHouseAuthorizer implements AccessChecker {
     // Must match the service definition name registered in Ranger Admin.
     static final String SERVICE_TYPE = "clickhouse";
     static final String APP_ID = "clickhouse";
@@ -35,6 +35,7 @@ public class ClickHouseAuthorizer {
     }
 
     /** Force a policy download now (useful in tests instead of waiting for the poll interval). */
+    @Override
     public void refreshPolicies() {
         plugin.refreshPoliciesAndTags();
     }
@@ -50,6 +51,7 @@ public class ClickHouseAuthorizer {
      * @param column     optional (null for table-level checks)
      * @param groups     explicit groups, or null to resolve through Hadoop UserGroupInformation
      */
+    @Override
     public boolean isAllowed(String user, Set<String> groups, String accessType,
                              String database, String table, String column) {
         RangerAccessResourceImpl resource = new RangerAccessResourceImpl();
