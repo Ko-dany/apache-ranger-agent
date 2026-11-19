@@ -3,7 +3,7 @@
   <!-- Ranger Admin URL. TODO: set to your Ranger Admin. -->
   <property>
     <name>ranger.plugin.clickhouse.policy.rest.url</name>
-    <value>http://localhost:6080</value>
+    <value>http://clickhousergr1:6080</value>
   </property>
   <!-- Must match the service name created in Ranger Admin UI (ClickHouse service). -->
   <property>
